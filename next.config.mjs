@@ -1,15 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: 'export',
+  trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
-  // Additional configurations can be added here
+  experimental: {
+    appDir: true
+  },
+  // Disable server-side features for static export
+  async headers() {
+    return []
+  },
+  async redirects() {
+    return []
+  },
+  async rewrites() {
+    return []
+  }
 }
 
 export default nextConfig
